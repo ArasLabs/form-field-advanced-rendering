@@ -1,0 +1,31 @@
+﻿<AML>
+ <Item type="List" id="367A79C2B2B74F66B0FF4B846476BB40" action="add">
+  <name>ffr_FormField_Visibility_Options</name>
+  <Relationships>
+   <Item type="Value" id="0BF71525D0F148B8977D51B05C062F79" action="add">
+    <label xml:lang="en">visible</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ffr_FormField_Visibility_Options" type="List">367A79C2B2B74F66B0FF4B846476BB40</source_id>
+    <value>visible</value>
+   </Item>
+   <Item type="Value" id="BC57A27A3375418399B6AFDB10D70465" action="add">
+    <label xml:lang="en">hidden</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="ffr_FormField_Visibility_Options" type="List">367A79C2B2B74F66B0FF4B846476BB40</source_id>
+    <value>hidden</value>
+   </Item>
+   <Item type="Value" id="EACFF440B0DC4C3E9AD3D025B985B274" action="add">
+    <label xml:lang="en">visible in edit mode</label>
+    <sort_order>512</sort_order>
+    <source_id keyed_name="ffr_FormField_Visibility_Options" type="List">367A79C2B2B74F66B0FF4B846476BB40</source_id>
+    <value>visible in edit mode</value>
+   </Item>
+   <Item type="Value" id="C29F244FA1804B79993F8B624BD42E89" action="add">
+    <label xml:lang="en">hidden in edit mode</label>
+    <sort_order>640</sort_order>
+    <source_id keyed_name="ffr_FormField_Visibility_Options" type="List">367A79C2B2B74F66B0FF4B846476BB40</source_id>
+    <value>hidden in edit mode</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

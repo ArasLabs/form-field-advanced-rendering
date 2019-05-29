@@ -1,0 +1,73 @@
+﻿<AML>
+ <Item type="Life Cycle Map" id="8448BB8EB0A145FBBA1BE3243C8CC18C" action="add">
+  <start_state keyed_name="In Work" type="Life Cycle State">842CEBD8C453491A98CF86681D761B0F</start_state>
+  <name>ffr_ItemType_FormFieldRule</name>
+  <Relationships>
+   <Item type="Life Cycle State" id="A782B4E667C747C2AB28D8AF455820E5" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="ffr_ItemType_FormFieldRule" type="Life Cycle Map">8448BB8EB0A145FBBA1BE3243C8CC18C</source_id>
+    <x>212</x>
+    <y>70</y>
+    <name>Active</name>
+   </Item>
+   <Item type="Life Cycle State" id="842CEBD8C453491A98CF86681D761B0F" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ffr_ItemType_FormFieldRule" type="Life Cycle Map">8448BB8EB0A145FBBA1BE3243C8CC18C</source_id>
+    <x>49</x>
+    <y>71</y>
+    <name>In Work</name>
+   </Item>
+   <Item type="Life Cycle State" id="79D5F49989DE4EF29D9E39937EB1450E" action="add">
+    <image>../images/LifeCycleState.svg</image>
+    <set_is_released>0</set_is_released>
+    <set_not_lockable>0</set_not_lockable>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="ffr_ItemType_FormFieldRule" type="Life Cycle Map">8448BB8EB0A145FBBA1BE3243C8CC18C</source_id>
+    <x>367</x>
+    <y>70</y>
+    <name>Obsolete</name>
+   </Item>
+   <Item type="Life Cycle Transition" id="095B694E6DB04C60B290D198AD00C4ED" action="add">
+    <from_state keyed_name="In Work" type="Life Cycle State">842CEBD8C453491A98CF86681D761B0F</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ffr_ItemType_FormFieldRule" type="Life Cycle Map">8448BB8EB0A145FBBA1BE3243C8CC18C</source_id>
+    <to_state keyed_name="Active" type="Life Cycle State">A782B4E667C747C2AB28D8AF455820E5</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="B2EA58C627334025B7B07ABD29D17F32" action="add">
+    <from_state keyed_name="Active" type="Life Cycle State">A782B4E667C747C2AB28D8AF455820E5</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Owner" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>Owner</name>
+     </Item>
+    </role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="ffr_ItemType_FormFieldRule" type="Life Cycle Map">8448BB8EB0A145FBBA1BE3243C8CC18C</source_id>
+    <to_state keyed_name="Obsolete" type="Life Cycle State">79D5F49989DE4EF29D9E39937EB1450E</to_state>
+   </Item>
+   <Item type="Life Cycle Transition" id="E2B1B839AB3A4BFDB61B106110D26189" action="add">
+    <from_state keyed_name="Active" type="Life Cycle State">A782B4E667C747C2AB28D8AF455820E5</from_state>
+    <get_comment>0</get_comment>
+    <role keyed_name="Administrators" type="Identity">2618D6F5A90949BAA7E920D1B04C7EE1</role>
+    <segments>140,53</segments>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="ffr_ItemType_FormFieldRule" type="Life Cycle Map">8448BB8EB0A145FBBA1BE3243C8CC18C</source_id>
+    <to_state keyed_name="In Work" type="Life Cycle State">842CEBD8C453491A98CF86681D761B0F</to_state>
+    <x>-79</x>
+    <y>-32</y>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

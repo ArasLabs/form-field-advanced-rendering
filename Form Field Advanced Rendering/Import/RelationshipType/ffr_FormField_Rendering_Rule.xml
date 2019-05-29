@@ -1,0 +1,461 @@
+﻿<AML>
+ <Item type="RelationshipType" id="03676A5997404D9299ECD9B26F424437" action="add" dependencyLevel="0">
+  <auto_search>1</auto_search>
+  <behavior>float</behavior>
+  <copy_permissions>0</copy_permissions>
+  <create_related>0</create_related>
+  <hide_in_all>0</hide_in_all>
+  <inc_rel_key_name>1</inc_rel_key_name>
+  <inc_related_key_name>1</inc_related_key_name>
+  <is_list_type>0</is_list_type>
+  <label xml:lang="en">Form Field Rules</label>
+  <new_show_related>0</new_show_related>
+  <related_notnull>0</related_notnull>
+  <related_option>2</related_option>
+  <relationship_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">
+   <Item type="ItemType" id="B69D0B13E58A4A89AA6E81E3B8400468" action="add">
+    <allow_private_permission>1</allow_private_permission>
+    <auto_search>0</auto_search>
+    <enforce_discovery>0</enforce_discovery>
+    <hide_where_used>0</hide_where_used>
+    <implementation_type>table</implementation_type>
+    <instance_data>FFR_FORMFIELD_RENDERING_RULE</instance_data>
+    <is_dependent>0</is_dependent>
+    <is_relationship>1</is_relationship>
+    <is_versionable>0</is_versionable>
+    <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+    <show_parameters_tab>1</show_parameters_tab>
+    <structure_view>tabs off</structure_view>
+    <unlock_on_logout>0</unlock_on_logout>
+    <use_src_access>1</use_src_access>
+    <name>ffr_FormField_Rendering_Rule</name>
+    <Relationships>
+     <Item type="Property" id="455F3267660A4A17A70DF91FD4FEC2CD" action="add">
+      <column_alignment>center</column_alignment>
+      <column_width>70</column_width>
+      <data_type>boolean</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">All Stages</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>30</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>apply_to_all_item_stages</name>
+     </Item>
+     <Item type="Property" id="84E439F78D2D4ACF9EB94843546FC888" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>135</column_width>
+      <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+      <data_type>item</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <item_behavior>float</item_behavior>
+      <label xml:lang="en">Enable for Identity (or Disable)</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>51</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>enable_for_identity</name>
+     </Item>
+     <Item type="Property" id="28802226C64E42048776B4CD00D679CF" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>100</column_width>
+      <data_source>
+       <Item type="Property" action="get" select="id">
+        <name>field_property_id</name>
+        <source_id>B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+       </Item>
+      </data_source>
+      <data_type>foreign</data_type>
+      <foreign_property>
+       <Item type="Property" action="get" select="id">
+        <keyed_name>pattern</keyed_name>
+        <source_id>
+         <Item type="ItemType" action="get" select="id">
+          <name>Property</name>
+         </Item>
+        </source_id>
+       </Item>
+      </foreign_property>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Pattern</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>24</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>field_property_datapattern</name>
+     </Item>
+     <Item type="Property" id="27689964908A4901B44754AAC1C8741A" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>100</column_width>
+      <data_source>
+       <Item type="Property" action="get" select="id">
+        <name>field_property_id</name>
+        <source_id>B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+       </Item>
+      </data_source>
+      <data_type>foreign</data_type>
+      <foreign_property>
+       <Item type="Property" action="get" select="id">
+        <keyed_name>data_type</keyed_name>
+        <source_id>
+         <Item type="ItemType" action="get" select="id">
+          <name>Property</name>
+         </Item>
+        </source_id>
+       </Item>
+      </foreign_property>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Data Type</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>22</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>field_property_datatype</name>
+     </Item>
+     <Item type="Property" id="BE2D6451C3C9437E912D2F03B4D28139" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>150</column_width>
+      <data_source keyed_name="Property" type="ItemType" name="Property">26D7CD4E033242148E2724D3D054B4D3</data_source>
+      <data_type>item</data_type>
+      <is_hidden>1</is_hidden>
+      <is_hidden2>1</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <item_behavior>float</item_behavior>
+      <label xml:lang="en">Property</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>20</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>field_property_id</name>
+      <Relationships>
+       <Item type="Grid Event" id="D5DA77C84F9048DABD3258A0837DFF56" action="add">
+        <grid_event>onsearchdialog</grid_event>
+        <related_id keyed_name="pev_PropVal_PropFilter" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>pev_PropVal_PropFilter</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="field_property_id" type="Property">BE2D6451C3C9437E912D2F03B4D28139</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Property" id="5B667C125A704811A21DB9BE44D25EE9" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>200</column_width>
+      <data_source>
+       <Item type="Property" action="get" select="id">
+        <name>field_property_id</name>
+        <source_id>B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+       </Item>
+      </data_source>
+      <data_type>foreign</data_type>
+      <foreign_property>
+       <Item type="Property" action="get" select="id">
+        <keyed_name>label</keyed_name>
+        <source_id>
+         <Item type="ItemType" action="get" select="id">
+          <name>Property</name>
+         </Item>
+        </source_id>
+       </Item>
+      </foreign_property>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Property Label</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>21</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>field_property_label</name>
+     </Item>
+     <Item type="Property" id="E1A3781180D244CC81E594EA3DC12A6A" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>120</column_width>
+      <data_source>
+       <Item type="Property" action="get" select="id">
+        <name>field_property_id</name>
+        <source_id>B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+       </Item>
+      </data_source>
+      <data_type>foreign</data_type>
+      <foreign_property>
+       <Item type="Property" action="get" select="id">
+        <keyed_name>name</keyed_name>
+        <source_id>
+         <Item type="ItemType" action="get" select="id">
+          <name>Property</name>
+         </Item>
+        </source_id>
+       </Item>
+      </foreign_property>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Property Name</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>20</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>field_property_name</name>
+     </Item>
+     <Item type="Property" id="02CC34C1C4A04959804C6BE166411719" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>100</column_width>
+      <data_source keyed_name="ffr_FormField_Enable_Options">794B8521985246FEB157640CA0B0281B</data_source>
+      <data_type>list</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Enabled Option</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>50</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <stored_length>256</stored_length>
+      <track_history>0</track_history>
+      <name>form_field_enabled_option</name>
+     </Item>
+     <Item type="Property" id="0141C2868D64439EB9C75706A0C4DA61" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>120</column_width>
+      <data_type>string</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Field Label</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>12</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <stored_length>64</stored_length>
+      <track_history>0</track_history>
+      <name>form_field_label</name>
+     </Item>
+     <Item type="Property" id="AF11A151D5A948818214288C6B27E969" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>100</column_width>
+      <data_type>string</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>1</is_required>
+      <label xml:lang="en">Field</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>11</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <stored_length>32</stored_length>
+      <track_history>0</track_history>
+      <name>form_field_name</name>
+      <Relationships>
+       <Item type="Grid Event" id="67426C1293D64DE5922D6189483F0510" action="add">
+        <grid_event>onchangecell</grid_event>
+        <related_id keyed_name="ffr_FormFieldRule_Field_change" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>ffr_FormFieldRule_Field_change</name>
+         </Item>
+        </related_id>
+        <sort_order>256</sort_order>
+        <source_id keyed_name="form_field_name" type="Property">AF11A151D5A948818214288C6B27E969</source_id>
+       </Item>
+       <Item type="Grid Event" id="21654CCDE4A541B7A7B35C0CA59A071E" action="add">
+        <grid_event>oneditstart</grid_event>
+        <related_id keyed_name="ffr_FormFieldRule_Field_dropdown" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>ffr_FormFieldRule_Field_dropdown</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="form_field_name" type="Property">AF11A151D5A948818214288C6B27E969</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Property" id="CBEB34F28A0D418D82044BDC7AADADDF" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>80</column_width>
+      <data_type>string</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Field Type</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>1</readonly>
+      <sort_order>13</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <stored_length>64</stored_length>
+      <track_history>0</track_history>
+      <name>form_field_type</name>
+     </Item>
+     <Item type="Property" id="0A9D90BB1FCA4443AF1C8835F56AA72E" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>100</column_width>
+      <data_source keyed_name="ffr_FormField_Visibility_Options">367A79C2B2B74F66B0FF4B846476BB40</data_source>
+      <data_type>list</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Visbility Option</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>40</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <stored_length>256</stored_length>
+      <track_history>0</track_history>
+      <name>form_field_visibility_option</name>
+     </Item>
+     <Item type="Property" id="DFB3469AB5ED4D478BFEBB9DBC29E93D" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>120</column_width>
+      <data_source keyed_name="Form" type="ItemType" name="Form">47573682FB7549F59ADECD4BFE04F1DE</data_source>
+      <data_type>item</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>1</is_required>
+      <item_behavior>float</item_behavior>
+      <label xml:lang="en">Form</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>10</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>form_id</name>
+     </Item>
+     <Item type="Property" id="298A94952EE84CE4895DC4653BA73589" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>200</column_width>
+      <data_type>string</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <label xml:lang="en">Item Type Stages (applied to)</label>
+      <order_by>2</order_by>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>31</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <stored_length>512</stored_length>
+      <track_history>0</track_history>
+      <name>item_type_stages</name>
+      <Relationships>
+       <Item type="Grid Event" id="E6D27A2C2D9544139E6941B399BA676D" action="add">
+        <grid_event>oneditstart</grid_event>
+        <related_id keyed_name="pev_PropVal_ITStages_dropdown" type="Method">
+         <Item type="Method" action="get" select="id">
+          <name>pev_PropVal_ITStages_dropdown</name>
+         </Item>
+        </related_id>
+        <sort_order>128</sort_order>
+        <source_id keyed_name="item_type_stages" type="Property">298A94952EE84CE4895DC4653BA73589</source_id>
+       </Item>
+      </Relationships>
+     </Item>
+     <Item type="Property" id="3ABC4392A7514E4D88E5EA8D0F63B851" action="add">
+      <column_alignment>left</column_alignment>
+      <column_width>135</column_width>
+      <data_source keyed_name="Identity" type="ItemType" name="Identity">E582AB17663F4EF28460015B2BE9E094</data_source>
+      <data_type>item</data_type>
+      <is_hidden>0</is_hidden>
+      <is_hidden2>0</is_hidden2>
+      <is_indexed>0</is_indexed>
+      <is_keyed>0</is_keyed>
+      <is_multi_valued>0</is_multi_valued>
+      <is_required>0</is_required>
+      <item_behavior>float</item_behavior>
+      <label xml:lang="en">Visiblity for Identity</label>
+      <range_inclusive>0</range_inclusive>
+      <readonly>0</readonly>
+      <sort_order>41</sort_order>
+      <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+      <track_history>0</track_history>
+      <name>visible_for_identity</name>
+     </Item>
+    </Relationships>
+   </Item>
+  </relationship_id>
+  <sort_order>19</sort_order>
+  <source_id keyed_name="ffr_ItemType_FormFieldRule" type="ItemType" name="ffr_ItemType_FormFieldRule">0755A67176464973BAD35060C6871A75</source_id>
+  <name>ffr_FormField_Rendering_Rule</name>
+ </Item>
+ <Item type="ItemType" id="B69D0B13E58A4A89AA6E81E3B8400468" action="edit">
+  <Relationships>
+   <Item type="Property" action="edit" where="source_id='B69D0B13E58A4A89AA6E81E3B8400468' and name='sort_order'">
+    <column_alignment>left</column_alignment>
+    <column_width>60</column_width>
+    <data_type>integer</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label xml:lang="en">Sequence</label>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>5</sort_order>
+    <source_id keyed_name="ffr_FormField_Rendering_Rule" type="ItemType" name="ffr_FormField_Rendering_Rule">B69D0B13E58A4A89AA6E81E3B8400468</source_id>
+    <track_history>0</track_history>
+    <name>sort_order</name>
+   </Item>
+  </Relationships>
+ </Item>
+ <Item type="View" action="delete" where="source_id='B69D0B13E58A4A89AA6E81E3B8400468'" />
+ <Item type="Form" action="delete" where="name='ffr_FormField_Rendering_Rule'" />
+</AML>

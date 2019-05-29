@@ -1,0 +1,19 @@
+﻿<AML>
+ <Item type="List" id="794B8521985246FEB157640CA0B0281B" action="add">
+  <name>ffr_FormField_Enable_Options</name>
+  <Relationships>
+   <Item type="Value" id="6771A5EB85B040ECA2A39B4C34878921" action="add">
+    <label xml:lang="en">enabled</label>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="ffr_FormField_Enable_Options" type="List">794B8521985246FEB157640CA0B0281B</source_id>
+    <value>enabled</value>
+   </Item>
+   <Item type="Value" id="C0D95D968A7645D8A6BC97D122956D8F" action="add">
+    <label xml:lang="en">disabled</label>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="ffr_FormField_Enable_Options" type="List">794B8521985246FEB157640CA0B0281B</source_id>
+    <value>disabled</value>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

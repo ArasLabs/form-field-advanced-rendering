@@ -1,0 +1,313 @@
+﻿<AML>
+ <Item type="Method" id="EB84D0094E0E48ACB17D05DAC798D489" action="add">
+  <comments>Form:  onLoad</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[// callback
+window.applyFormFieldRenderRules = function() {
+    //alert("apply form field rendering");
+    applyFormFieldRenderRules();
+};
+
+applyFormFieldRenderRules = function() {
+    var formID = document.formID;
+    var thisItemType = document.thisItem.getType();
+    var thisItemClassfication = document.thisItem.getProperty("classification","");
+    var thisItemState = document.thisItem.getProperty("state","");
+    
+    var callMethod = top.aras.newIOMItem(thisItemType, "ffr_FormField_GetRenderRulesDef");
+    callMethod.setAttribute("formID",formID);
+    callMethod.setProperty("classification", thisItemClassfication);
+    callMethod.setProperty("state", thisItemState);
+    callMethod = callMethod.apply();
+    if (callMethod.isError()) { return; }  // do nothing
+    
+    var formFieldRenderRules = callMethod.getRelationships("ffr_FormField_Rendering_Rule");
+    var formFieldRenderRule;
+    var fieldName;
+    var visibilityRule;
+    var disableRule;
+    var i;
+    //debugger;
+
+    // process visibility, first
+    var fieldsHidden = "";
+    for (i=0;i<formFieldRenderRules.getItemCount();i++) {
+        formFieldRenderRule = formFieldRenderRules.getItemByIndex(i);
+        fieldName = formFieldRenderRule.getProperty("form_field_name","");
+        visibilityRule = formFieldRenderRule.getProperty("form_field_visibility_option","");
+        var visibility = true;
+        switch (visibilityRule) {
+            case "visible in edit mode":
+            case "visible":
+                var visibleForIdentityOnly = formFieldRenderRule.getProperty("visible_for_identity","");
+                visibleForIdentityOnly = resolveOwnerAndManagerIdentities(visibleForIdentityOnly);
+                if (visibleForIdentityOnly !== "") {
+                    if (IsCurrUserMemberOfIdentityId(visibleForIdentityOnly)) {
+                        visibility = true;
+                    } else {
+                        visibility = false;
+                        fieldsHidden += ","+fieldName;
+                    }
+                } else {
+                    visibility = true;
+                }
+                if (visibilityRule.indexOf("edit mode") >= 0 ) {
+                    visibility = document.isEditMode;
+                }
+                setFieldVisibility(fieldName, visibility);
+                break;
+                
+            case "hidden in edit mode":
+            case "hidden":
+            case "invisible":
+                visibleForIdentityOnly = formFieldRenderRule.getProperty("visible_for_identity","");
+                visibleForIdentityOnly = resolveOwnerAndManagerIdentities(visibleForIdentityOnly);
+                if (visibleForIdentityOnly !== "") {
+                    if (IsCurrUserMemberOfIdentityId(visibleForIdentityOnly)) {
+                        visibility = false;
+                        fieldsHidden += ","+fieldName;
+                    } else {
+                        visibility = true;
+                    }
+                } else {
+                    visibility = false;
+                    fieldsHidden += ","+fieldName;
+                }
+                if (visibilityRule.indexOf("edit mode") >= 0 ) {
+                    visibility = !document.isEditMode;
+                }
+                setFieldVisibility(fieldName, visibility);
+                
+                break;
+        }
+    }
+    
+    // process disable rules
+    if (document.isEditMode) {
+        var disabledTextColor = "#aaaaaa";
+        for (i=0;i<formFieldRenderRules.getItemCount();i++) {
+            formFieldRenderRule = formFieldRenderRules.getItemByIndex(i);
+            fieldName = formFieldRenderRule.getProperty("form_field_name","");
+            var formFieldType= formFieldRenderRule.getProperty("form_field_type","");
+            //alert(formFieldType);
+            
+            // if field is hidden, no action required
+            if (fieldsHidden.indexOf(","+fieldName) < 0) {
+                disableRule = formFieldRenderRule.getProperty("form_field_enabled_option","");
+                switch (disableRule) {
+                    case "enabled":
+                        var enableForIdentityOnly = formFieldRenderRule.getProperty("enable_for_identity","");
+                        enableForIdentityOnly = resolveOwnerAndManagerIdentities(enableForIdentityOnly);
+                        if (enableForIdentityOnly !== "") {
+                            if (IsCurrUserMemberOfIdentityId(enableForIdentityOnly)) {
+                                setFieldDisable(formFieldType, fieldName, false);
+                            } else {
+                                setFieldDisable(formFieldType, fieldName, true);
+                                setFieldLabelColor(fieldName, disabledTextColor);
+                            }
+                        } else {
+                            setFieldDisable(formFieldType, fieldName, false);
+                        }
+                        break;
+                        
+                    case "disabled":
+                        enableForIdentityOnly= formFieldRenderRule.getProperty("enable_for_identity","");
+                        enableForIdentityOnly = resolveOwnerAndManagerIdentities(enableForIdentityOnly);
+                        if (enableForIdentityOnly !== "") {
+                            if (IsCurrUserMemberOfIdentityId(enableForIdentityOnly)) {
+                                setFieldDisable(formFieldType, fieldName, true);
+                                setFieldLabelColor(fieldName, disabledTextColor);
+                            }        
+                        } else {
+                            setFieldDisable(formFieldType, fieldName, true);
+                            setFieldLabelColor(fieldName, disabledTextColor);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+};
+
+// --------  Helper functions -----------
+function getFieldElement(fieldName) {
+    field_as_ctrl = getFieldID(fieldName);
+    return document.getElementById(field_as_ctrl);
+}
+
+function getFieldID(fieldName){
+    var field_as_id = getFieldByName(fieldName).id;
+    var field_as_ctrl = field_as_id.substring(0, 32);
+    return field_as_ctrl;
+}
+
+function setFieldVisibility(fieldName, isVisible) {
+    var visibility  = isVisible ? "visible" : "hidden";
+	try {
+        getFieldByName(fieldName).style.visibility = visibility;
+	}
+	catch (err) {}
+}
+
+function setFieldDisable(formFieldType, fieldName, isDisabled) {
+    switch (formFieldType) {
+        case "dropdown":
+            setDropdownFieldDisable(fieldName, isDisabled);
+            break;
+        case "date":
+            setDateFieldDisable(fieldName, isDisabled);
+            break;
+        case "item":
+            setItemFieldDisable(fieldName, isDisabled);
+            break;
+        case "button":
+            setButtonFieldDisable(fieldName, isDisabled);
+            break;
+        default:
+            setSimpleFieldDisable(fieldName, isDisabled);
+            break;
+    }
+}
+
+function setSimpleFieldDisable(fieldName, isDisabled) {
+	try {
+        var div_element = getFieldElement(fieldName);
+        if (div_element) {
+            div_element.disabled = isDisabled;
+            var i;
+            
+			var fieldByName = getFieldByName(fieldName)
+			
+            //modify all input tags
+            var Elements = fieldByName.getElementsByTagName("input");
+            for (i = 0; i < Elements.length; i++){
+                Elements[i].disabled = isDisabled;
+            }
+            //modify all span tags
+            Elements = fieldByName.getElementsByTagName("span");
+            for (i = 0; i < Elements.length; i++){
+                Elements[i].disabled = isDisabled;
+            }
+        }
+	}
+	catch (err) {}
+}
+
+function setDateFieldDisable(fieldName, isDisabled) {
+    var fieldContainer = getFieldByName(fieldName);
+    if (!fieldContainer) {return;}
+
+    fieldContainer.getElementsByTagName("input")[0].disabled = isDisabled;
+    fieldContainer.getElementsByTagName("input")[1].disabled = isDisabled;
+    if (isDisabled) {
+        fieldContainer.getElementsByTagName("input")[1].src = "../images/calendar-disabled.svg";
+    } else {
+        fieldContainer.getElementsByTagName("input")[1].src = "../images/calendar.svg";
+    }
+}
+
+function setDropdownFieldDisable(fieldName, isDisabled) {
+    var fieldContainer = getFieldByName(fieldName);
+    if (!fieldContainer) {return;}
+    
+    // get the form field element
+    var l = fieldContainer.getElementsByTagName("select")[0];
+    if (l) {
+        // 11SP11--
+    	l.disabled = isDisabled;
+    	l.readOnly = isDisabled;
+    } else {
+        // 11SP11++
+        setTimeout(function() {
+            fieldContainer.getElementsByTagName("input")[0].disabled = isDisabled;
+            fieldContainer.getElementsByTagName("button")[0].disabled = isDisabled;
+        }, 60);
+    }
+}
+
+function setItemFieldDisable(fieldName, isDisabled) {
+    var fieldContainer = getFieldByName(fieldName);
+    if (!fieldContainer) {return;}
+
+    setTimeout(function() {
+        fieldContainer.getElementsByTagName("input")[0].disabled = isDisabled;
+        fieldContainer.getElementsByTagName("button")[0].disabled = isDisabled;
+    }, 60);
+}
+
+function setButtonFieldDisable(fieldName, isDisabled) {
+    var fieldContainer = getFieldByName(fieldName);
+    if (!fieldContainer) {return;}
+
+    setTimeout(function() {
+        fieldContainer.getElementsByTagName("button")[0].disabled = isDisabled;
+    }, 60);
+}
+
+function setFieldBackground(fieldName, color) {
+    var el = getFieldElement(fieldName);
+    if (el) {getFieldElement(fieldName).style.backgroundColor = color;}
+}
+
+function setFieldLabelColor(fieldName, color) {
+    var topfield = getFieldByName(fieldName);
+    if (topfield) {topfield.style.color = color;}
+}
+
+function setFieldTextColor(fieldName, color) {
+    //modify top level of field
+    // var topfield = getFieldByName(fieldName);
+    // topfield.style.color = color;
+    
+    //modify top field element
+    var topfieldelt = getFieldElement(fieldName);
+    if (topfieldelt) {topfieldelt.style.color = color;}
+    
+    //modify all input tags
+    var inputElements = getFieldByName(fieldName).getElementsByTagName("input");
+    for (var i = 0; i < inputElements.length; i++){
+        inputElements[i].style.color = color;
+    }
+    
+    //modify all span tags
+    var spanElements = getFieldByName(fieldName).getElementsByTagName("span");
+    for (var j = 0; j < spanElements.length; j++){
+        spanElements[j].style.color = color;
+    }
+}
+
+// -------
+resolveOwnerAndManagerIdentities = function (identity_id_to_check) {
+    switch (identity_id_to_check) {
+        case "538B300BB2A347F396C436E9EEE1976C":
+            // Owner
+            return document.thisItem.getProperty("owned_by_id","invalid");
+
+        case "9200A800443E4A5AAA80D0BCE5760307":
+            // Manager
+            return document.thisItem.getProperty("managed_by_id","invalid");
+
+    }
+    return identity_id_to_check;
+};
+
+// -------
+IsCurrUserMemberOfIdentityId = function (identity_id_to_check)
+{
+  if (identity_id_to_check === "") {return false;}
+    
+  var sessionIdentitites_array = top.aras.getIdentityList().split(",");
+  // now we have all identities the current user (session) is member of
+  // scan if given identity is in the list - if yes, return true
+  for (var i=0;i<sessionIdentitites_array.length;i++) {
+    if (identity_id_to_check == sessionIdentitites_array[i]) {return true;}
+  }
+  return false;
+};
+
+// call the rendering (onload)
+applyFormFieldRenderRules();]]></method_code>
+  <method_type>JavaScript</method_type>
+  <name>ffr_FormField_ApplyRenderRules</name>
+ </Item>
+</AML>

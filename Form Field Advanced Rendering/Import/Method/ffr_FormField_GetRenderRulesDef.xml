@@ -1,0 +1,84 @@
+﻿<AML>
+ <Item type="Method" id="A6A98FB0CB6B41008362FAC0470B9D16" action="add">
+  <comments>called from Forms logic</comments>
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[//System.Diagnostics.Debugger.Launch();System.Diagnostics.Debugger.Break();
+
+// context ItemType = any ItemType that has Rendering rules defined
+// property "classificaion" can be passed in optionally
+
+// return Item will be the "ffr_ItemType_FormFieldRule" item found for given ItemType and Classification (optional)
+
+string classification = this.getProperty("classification","");
+string formID = this.getAttribute("formID","invalid");
+
+string aml = "<Item type='ffr_ItemType_FormFieldRule' action='get' select='id,item_type_id,item_type_label,item_type_classification,item_type_stages_id,description,state' >";
+aml += "  <state>Active</state>";
+aml += "<item_type_id>";
+aml += " <Item type='ItemType' action='get' select='id' >";
+aml += "  <name>"+this.getType()+"</name>";
+aml += " </Item>";
+aml += "</item_type_id>";
+if (classification != "") {
+    aml += "  <item_type_classification>"+classification+"</item_type_classification>";
+}
+aml += "<Relationships>";
+aml += " <Item type='ffr_FormField_Rendering_Rule' action='get' select='*'>";
+aml += "  <form_id>"+formID+"</form_id>";
+aml += " </Item>";
+aml += "</Relationships>";
+aml += "</Item>";
+
+Item formFieldRules = this.newItem("");
+formFieldRules.loadAML(aml);
+formFieldRules = formFieldRules.apply();
+
+// filter results to get rules for given item state only
+aml = "<Item type='pev_ItemType_Stages_Mapping' action='get' select='id,life_cycle_states,name,label' >";
+aml += "<source_id>"+formFieldRules.getProperty("item_type_stages_id","invalid")+"</source_id>";
+aml += "</Item>";
+Item itemStagesMappings = this.newItem("");
+itemStagesMappings.loadAML(aml);
+itemStagesMappings = itemStagesMappings.apply();
+
+string itemState = this.getProperty("state","invalid");
+string stagesToUse = "";
+for(int i=0; i<itemStagesMappings.getItemCount(); i++) {
+	Item itemStagesMapping = itemStagesMappings.getItemByIndex(i);
+	string lcStates = ","+itemStagesMapping.getProperty("life_cycle_states","");
+	if (lcStates.IndexOf(","+itemState) >= 0) {
+		stagesToUse += ","+itemStagesMapping.getProperty("name","");
+	}
+}
+if (stagesToUse != "") {
+	string[] stagesToUse_a = stagesToUse.Split(',');
+	
+	Item formFieldRenderRules = formFieldRules.getRelationships("ffr_FormField_Rendering_Rule");
+	Item relsToRemove = this.newItem("DUMMY");
+	for(int i=0; i<formFieldRenderRules.getItemCount(); i++) {
+		Item formFieldRenderRule = formFieldRenderRules.getItemByIndex(i);
+		
+		if (formFieldRenderRule.getProperty("apply_to_all_item_stages","0") == "0") {
+    		string itStages = ","+formFieldRenderRule.getProperty("item_type_stages","");
+    		for(int j=1; j<stagesToUse_a.Length && stagesToUse_a[1] != ""; j++) {
+    			// remove rule, from results, of stage does not match
+    			if (itStages.IndexOf(stagesToUse_a[j]) < 0) {
+    			    relsToRemove.appendItem(formFieldRenderRule);
+    			}
+    		}
+		}
+	}
+	for(int i=1; i<relsToRemove.getItemCount(); i++) {
+		Item formFieldRenderRule = formFieldRules.getItemsByXPath("//Item[@type='ffr_FormField_Rendering_Rule' and @id='"+relsToRemove.getItemByIndex(i).getID()+"']");
+		if (formFieldRenderRule != null) { 
+		    formFieldRules.removeRelationship(formFieldRenderRule);
+	    }
+	}
+}
+
+return formFieldRules;
+]]></method_code>
+  <method_type>C#</method_type>
+  <name>ffr_FormField_GetRenderRulesDef</name>
+ </Item>
+</AML>

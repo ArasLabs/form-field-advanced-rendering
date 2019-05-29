@@ -1,0 +1,201 @@
+<!--
+Property Extend Validations:
+a configuration sample for item type "Part"
+
+-->
+
+<!--
+Query to read item stages definitions by given ID
+
+<AML>
+<Item type='pev_ItemType_Stages' action='get' id='B0CF0348B55C40818ECCAD242BE093D4' select='item_type_id' >
+<Relationships>
+ <Item type='pev_ItemType_Stages_Mapping' action='get' select='item_life_cycle_id,label,life_cycle_states,name,sort_order' >
+ </Item>
+</Relationships>
+</Item>
+</AML>
+-->
+
+
+<!--
+Query to read form field rendering rules by given ID
+
+AML>
+<Item type='ffr_ItemType_FormFieldRule" action="get" id="6E788D310B424ECE8B82AAE5427544F7" select="item_type_id,item_type_classification,description,item_type_stages_id,item_type_label" >
+<Relationships>
+ <Item type="ffr_FormField_Rendering_Rule" action="get" select="apply_to_all_item_stages,enable_for_identity,form_id,item_type_stages,form_field_visibility_option,sort_order,form_field_name,form_field_label,form_field_type,field_property_id,form_field_enabled_option" >
+ </Item>
+</Relationships>
+</Item>
+</AML>
+
+-->
+
+<AML>
+      <Item action="merge" type="pev_ItemType_Stages" typeId="0FB358B248D5438AAD74BDCABC06246B" id="B0CF0348B55C40818ECCAD242BE093D4">
+        <id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</id>
+        <item_type_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</item_type_id>
+        <Relationships>
+          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="216604B4DCA7447CBA73D2CA9F07588F">
+            <id keyed_name="216604B4DCA7447CBA73D2CA9F07588F" type="pev_ItemType_Stages_Mapping">216604B4DCA7447CBA73D2CA9F07588F</id>
+            <item_life_cycle_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</item_life_cycle_id>
+            <label xml:lang="en">New</label>
+            <life_cycle_states>New</life_cycle_states>
+            <name>New</name>
+            <sort_order>1</sort_order>
+            <source_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
+          </Item>
+          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="DF4EC90C380D40FB9C158637294CFB76">
+            <id keyed_name="DF4EC90C380D40FB9C158637294CFB76" type="pev_ItemType_Stages_Mapping">DF4EC90C380D40FB9C158637294CFB76</id>
+            <item_life_cycle_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</item_life_cycle_id>
+            <label xml:lang="en">Submitted</label>
+            <life_cycle_states>Submitted</life_cycle_states>
+            <name>Submitted</name>
+            <sort_order>2</sort_order>
+            <source_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
+          </Item>
+          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="89E8D3F5AA31403287099C59209AFA5A">
+            <id keyed_name="89E8D3F5AA31403287099C59209AFA5A" type="pev_ItemType_Stages_Mapping">89E8D3F5AA31403287099C59209AFA5A</id>
+            <item_life_cycle_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</item_life_cycle_id>
+            <label xml:lang="en">In Review</label>
+            <life_cycle_states>In CRB,In Review</life_cycle_states>
+            <name>In Review</name>
+            <sort_order>3</sort_order>
+            <source_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
+          </Item>
+        </Relationships>
+      </Item>
+
+      <Item action="merge" type="ffr_ItemType_FormFieldRule" typeId="0755A67176464973BAD35060C6871A75" id="6E788D310B424ECE8B82AAE5427544F7">
+        <description is_null="1" />
+        <id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</id>
+        <item_type_classification is_null="1" />
+        <item_type_label xml:lang="en">ECR</item_type_label>
+        <item_type_stages_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</item_type_stages_id>
+        <item_type_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</item_type_id>
+        <Relationships>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="D1FBB8D693B4475DB144A46D2797CB7C">
+            <apply_to_all_item_stages>1</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="technical_review" type="Property">56A182A463554B9DBA9132AC072C217C</field_property_id>
+            <form_field_enabled_option>disabled</form_field_enabled_option>
+            <form_field_label is_null="1" />
+            <form_field_name>technical_review</form_field_name>
+            <form_field_type>textarea</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="D1FBB8D693B4475DB144A46D2797CB7C" type="ffr_FormField_Rendering_Rule">D1FBB8D693B4475DB144A46D2797CB7C</id>
+            <item_type_stages is_null="1" />
+            <sort_order>1</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="39CD1A16044E48CC910BA480A01E3F50">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="owned_by_id" type="Property">5F4B1989E36647C9B149B7486BB75CCB</field_property_id>
+            <form_field_enabled_option>disabled</form_field_enabled_option>
+            <form_field_label>Assigned Creator</form_field_label>
+            <form_field_name>owned_by_id</form_field_name>
+            <form_field_type>item</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="39CD1A16044E48CC910BA480A01E3F50" type="ffr_FormField_Rendering_Rule">39CD1A16044E48CC910BA480A01E3F50</id>
+            <item_type_stages>New,Submitted</item_type_stages>
+            <sort_order>8</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="3D6045CD3AB34C2EA1C23AC5DFF17B78">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="fast_track" type="Property">1A1AA52797A748AB8E97304F886C58FA</field_property_id>
+            <form_field_enabled_option>disabled</form_field_enabled_option>
+            <form_field_label>Fast Track</form_field_label>
+            <form_field_name>fast_track</form_field_name>
+            <form_field_type>checkbox</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="3D6045CD3AB34C2EA1C23AC5DFF17B78" type="ffr_FormField_Rendering_Rule">3D6045CD3AB34C2EA1C23AC5DFF17B78</id>
+            <item_type_stages>New,Submitted</item_type_stages>
+            <sort_order>6</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="7E22738E6E1D4D75878FF2A19B62DA4B">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="priority" type="Property">C98D479B46AB4DDCBA371EEDEDDE943E</field_property_id>
+            <form_field_enabled_option>disabled</form_field_enabled_option>
+            <form_field_label>Priority For Tech Review</form_field_label>
+            <form_field_name>priority</form_field_name>
+            <form_field_type>radio button list</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="7E22738E6E1D4D75878FF2A19B62DA4B" type="ffr_FormField_Rendering_Rule">7E22738E6E1D4D75878FF2A19B62DA4B</id>
+            <item_type_stages>New,Submitted</item_type_stages>
+            <sort_order>7</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="961FD9F28943427682EC5B221ADFF109">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="proposed_solution" type="Property">3210172D045B467F94AEF3D4859DEB66</field_property_id>
+            <form_field_enabled_option is_null="1" />
+            <form_field_label>Proposed Solution</form_field_label>
+            <form_field_name>proposed_solution</form_field_name>
+            <form_field_type>textarea</form_field_type>
+            <form_field_visibility_option>hidden</form_field_visibility_option>
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="961FD9F28943427682EC5B221ADFF109" type="ffr_FormField_Rendering_Rule">961FD9F28943427682EC5B221ADFF109</id>
+            <item_type_stages>New,Submitted</item_type_stages>
+            <sort_order>2</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="FEF6C7688177404D9B2A66B84362B165">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="problem_status" type="Property">C65633A07C4A4D2E8343D3732C708092</field_property_id>
+            <form_field_enabled_option>disabled</form_field_enabled_option>
+            <form_field_label>Problem Status</form_field_label>
+            <form_field_name>problem_status</form_field_name>
+            <form_field_type>dropdown</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="FEF6C7688177404D9B2A66B84362B165" type="ffr_FormField_Rendering_Rule">FEF6C7688177404D9B2A66B84362B165</id>
+            <item_type_stages>New,Submitted</item_type_stages>
+            <sort_order>4</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="574D32A8FE724517B97479147C1C6EE8">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity keyed_name="Owner" type="Identity">538B300BB2A347F396C436E9EEE1976C</enable_for_identity>
+            <field_property_id keyed_name="technical_review" type="Property">56A182A463554B9DBA9132AC072C217C</field_property_id>
+            <form_field_enabled_option>enabled</form_field_enabled_option>
+            <form_field_label is_null="1" />
+            <form_field_name>technical_review</form_field_name>
+            <form_field_type>textarea</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="574D32A8FE724517B97479147C1C6EE8" type="ffr_FormField_Rendering_Rule">574D32A8FE724517B97479147C1C6EE8</id>
+            <item_type_stages>Submitted</item_type_stages>
+            <sort_order>3</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+          <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="62BD64BC9288424B88C42F222D55A6BB">
+            <apply_to_all_item_stages>0</apply_to_all_item_stages>
+            <enable_for_identity is_null="1" />
+            <field_property_id keyed_name="title" type="Property">200478AA209B4F9E9C3D11217CE66238</field_property_id>
+            <form_field_enabled_option>disabled</form_field_enabled_option>
+            <form_field_label>Title</form_field_label>
+            <form_field_name>title</form_field_name>
+            <form_field_type>text</form_field_type>
+            <form_field_visibility_option is_null="1" />
+            <form_id keyed_name="ECR" type="Form">2151A91940B34A90BC9BF0FCE24D26FC</form_id>
+            <id keyed_name="62BD64BC9288424B88C42F222D55A6BB" type="ffr_FormField_Rendering_Rule">62BD64BC9288424B88C42F222D55A6BB</id>
+            <item_type_stages>Submitted</item_type_stages>
+            <sort_order>5</sort_order>
+            <source_id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</source_id>
+          </Item>
+        </Relationships>
+      </Item>
+	  
+</AML>
