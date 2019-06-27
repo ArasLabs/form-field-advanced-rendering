@@ -18,7 +18,6 @@ Features used from PEV:
 
 Similar to and improved functionality from community project "[Life Cycle Based Props and Fields](<https://github.com/ArasLabs/lc-based-props-and-fields>)"
 
-> Note: The word <u>advanced</u> has been used in this file to describe the properties as opposed to <u>extended</u> since this is close to the description of xProperties in the Aras system. However, all parts of the package and documentation could not accommodate this update.
 
 ## History
 
