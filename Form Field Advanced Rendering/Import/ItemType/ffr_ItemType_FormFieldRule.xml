@@ -77,7 +77,7 @@
    <Item type="Property" id="F19F015F3C184F939B61160AA9580230" action="add">
     <column_alignment>left</column_alignment>
     <column_width>150</column_width>
-    <data_source keyed_name="pev_ItemType_Stages" type="ItemType" name="pev_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</data_source>
+    <data_source keyed_name="pav_ItemType_Stages" type="ItemType" name="pav_ItemType_Stages">0FB358B248D5438AAD74BDCABC06246B</data_source>
     <data_type>item</data_type>
     <is_hidden>0</is_hidden>
     <is_hidden2>0</is_hidden2>
@@ -110,9 +110,9 @@
    <Item type="Server Event" id="BDB7E40B8CCE431EBE0DF17FA974A6D5" action="add">
     <event_version>version_1</event_version>
     <is_required>0</is_required>
-    <related_id keyed_name="pev_setKN_ItemType_PropertyRule" type="Method">
+    <related_id keyed_name="pav_setKN_ItemType_PropertyRule" type="Method">
      <Item type="Method" action="get" select="id">
-      <name>pev_setKN_ItemType_PropertyRule</name>
+      <name>pav_setKN_ItemType_PropertyRule</name>
      </Item>
     </related_id>
     <server_event>GetKeyedName</server_event>
