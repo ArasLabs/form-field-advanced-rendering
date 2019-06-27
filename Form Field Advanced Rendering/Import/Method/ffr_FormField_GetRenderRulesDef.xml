@@ -34,7 +34,7 @@ formFieldRules.loadAML(aml);
 formFieldRules = formFieldRules.apply();
 
 // filter results to get rules for given item state only
-aml = "<Item type='pev_ItemType_Stages_Mapping' action='get' select='id,life_cycle_states,name,label' >";
+aml = "<Item type='pav_ItemType_Stages_Mapping' action='get' select='id,life_cycle_states,name,label' >";
 aml += "<source_id>"+formFieldRules.getProperty("item_type_stages_id","invalid")+"</source_id>";
 aml += "</Item>";
 Item itemStagesMappings = this.newItem("");
