@@ -158,9 +158,9 @@
       <Relationships>
        <Item type="Grid Event" id="D5DA77C84F9048DABD3258A0837DFF56" action="add">
         <grid_event>onsearchdialog</grid_event>
-        <related_id keyed_name="pev_PropVal_PropFilter" type="Method">
+        <related_id keyed_name="pav_PropVal_PropFilter" type="Method">
          <Item type="Method" action="get" select="id">
-          <name>pev_PropVal_PropFilter</name>
+          <name>pav_PropVal_PropFilter</name>
          </Item>
         </related_id>
         <sort_order>128</sort_order>
@@ -397,9 +397,9 @@
       <Relationships>
        <Item type="Grid Event" id="E6D27A2C2D9544139E6941B399BA676D" action="add">
         <grid_event>oneditstart</grid_event>
-        <related_id keyed_name="pev_PropVal_ITStages_dropdown" type="Method">
+        <related_id keyed_name="pav_PropVal_ITStages_dropdown" type="Method">
          <Item type="Method" action="get" select="id">
-          <name>pev_PropVal_ITStages_dropdown</name>
+          <name>pav_PropVal_ITStages_dropdown</name>
          </Item>
         </related_id>
         <sort_order>128</sort_order>
