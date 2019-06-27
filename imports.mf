@@ -1,5 +1,5 @@
 <imports>
-  <package name="Form Field extended Rendering" path="Form Field extended Rendering\Import">
-    <dependson name="Property Extended Validation" />
+  <package name="Form Field Advanced Rendering" path="Form Field Advanced Rendering\Import">
+    <dependson name="Property Advanced Validation" />
   </package>
 </imports>
