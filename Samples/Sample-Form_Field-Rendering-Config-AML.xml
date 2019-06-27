@@ -8,9 +8,9 @@ a configuration sample for item type "Part"
 Query to read item stages definitions by given ID
 
 <AML>
-<Item type='pev_ItemType_Stages' action='get' id='B0CF0348B55C40818ECCAD242BE093D4' select='item_type_id' >
+<Item type='pav_ItemType_Stages' action='get' id='B0CF0348B55C40818ECCAD242BE093D4' select='item_type_id' >
 <Relationships>
- <Item type='pev_ItemType_Stages_Mapping' action='get' select='item_life_cycle_id,label,life_cycle_states,name,sort_order' >
+ <Item type='pav_ItemType_Stages_Mapping' action='get' select='item_life_cycle_id,label,life_cycle_states,name,sort_order' >
  </Item>
 </Relationships>
 </Item>
@@ -33,36 +33,36 @@ AML>
 -->
 
 <AML>
-      <Item action="merge" type="pev_ItemType_Stages" typeId="0FB358B248D5438AAD74BDCABC06246B" id="B0CF0348B55C40818ECCAD242BE093D4">
-        <id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</id>
+      <Item action="merge" type="pav_ItemType_Stages" typeId="0FB358B248D5438AAD74BDCABC06246B" id="B0CF0348B55C40818ECCAD242BE093D4">
+        <id keyed_name="ItemStages: ECR" type="pav_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</id>
         <item_type_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</item_type_id>
         <Relationships>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="216604B4DCA7447CBA73D2CA9F07588F">
-            <id keyed_name="216604B4DCA7447CBA73D2CA9F07588F" type="pev_ItemType_Stages_Mapping">216604B4DCA7447CBA73D2CA9F07588F</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="216604B4DCA7447CBA73D2CA9F07588F">
+            <id keyed_name="216604B4DCA7447CBA73D2CA9F07588F" type="pav_ItemType_Stages_Mapping">216604B4DCA7447CBA73D2CA9F07588F</id>
             <item_life_cycle_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</item_life_cycle_id>
             <label xml:lang="en">New</label>
             <life_cycle_states>New</life_cycle_states>
             <name>New</name>
             <sort_order>1</sort_order>
-            <source_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
+            <source_id keyed_name="ItemStages: ECR" type="pav_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
           </Item>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="DF4EC90C380D40FB9C158637294CFB76">
-            <id keyed_name="DF4EC90C380D40FB9C158637294CFB76" type="pev_ItemType_Stages_Mapping">DF4EC90C380D40FB9C158637294CFB76</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="DF4EC90C380D40FB9C158637294CFB76">
+            <id keyed_name="DF4EC90C380D40FB9C158637294CFB76" type="pav_ItemType_Stages_Mapping">DF4EC90C380D40FB9C158637294CFB76</id>
             <item_life_cycle_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</item_life_cycle_id>
             <label xml:lang="en">Submitted</label>
             <life_cycle_states>Submitted</life_cycle_states>
             <name>Submitted</name>
             <sort_order>2</sort_order>
-            <source_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
+            <source_id keyed_name="ItemStages: ECR" type="pav_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
           </Item>
-          <Item action="merge" type="pev_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="89E8D3F5AA31403287099C59209AFA5A">
-            <id keyed_name="89E8D3F5AA31403287099C59209AFA5A" type="pev_ItemType_Stages_Mapping">89E8D3F5AA31403287099C59209AFA5A</id>
+          <Item action="merge" type="pav_ItemType_Stages_Mapping" typeId="4D86A9D5AAFB410BAFBF7662A5E97360" id="89E8D3F5AA31403287099C59209AFA5A">
+            <id keyed_name="89E8D3F5AA31403287099C59209AFA5A" type="pav_ItemType_Stages_Mapping">89E8D3F5AA31403287099C59209AFA5A</id>
             <item_life_cycle_id keyed_name="ECR" type="Life Cycle Map">B55B3F9D1F30465F8F6B83F55FECBAEF</item_life_cycle_id>
             <label xml:lang="en">In Review</label>
             <life_cycle_states>In CRB,In Review</life_cycle_states>
             <name>In Review</name>
             <sort_order>3</sort_order>
-            <source_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
+            <source_id keyed_name="ItemStages: ECR" type="pav_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</source_id>
           </Item>
         </Relationships>
       </Item>
@@ -72,7 +72,7 @@ AML>
         <id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</id>
         <item_type_classification is_null="1" />
         <item_type_label xml:lang="en">ECR</item_type_label>
-        <item_type_stages_id keyed_name="ItemStages: ECR" type="pev_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</item_type_stages_id>
+        <item_type_stages_id keyed_name="ItemStages: ECR" type="pav_ItemType_Stages">B0CF0348B55C40818ECCAD242BE093D4</item_type_stages_id>
         <item_type_id keyed_name="ECR" type="ItemType" name="ECR">2D4799413792453DA08C1EDE6AA22A76</item_type_id>
         <Relationships>
           <Item action="merge" type="ffr_FormField_Rendering_Rule" typeId="B69D0B13E58A4A89AA6E81E3B8400468" id="D1FBB8D693B4475DB144A46D2797CB7C">
