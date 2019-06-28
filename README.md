@@ -59,41 +59,29 @@ Similar to and improved functionality from community project "[Life Cycle Based 
 
   - [ ] Import the `imports.mf` file from the Imports folder.
 
-### Post Installation Steps - Advanced Property Validations
-
-- [ ] Log in as <u>admin</u> and expand to **Administration > Configuration**
-- [ ] In category **ItemType Stages Definition**:  add stages definitions for ItemType.
-- [ ] In category **Form Field Rendering Rules**:  add rules definitions for Form field rendering and edit control (disable/enable) (connected to ItemType Stages).
-
-    - [ ] Promote rules to <u>Active</u> (**If you skip this step the rules will not be in force!**)
-
-- For all Forms referenced in above ItemType add the 2 client methods to form events:
-
-   - [ ] add Form Event "onFormPopulated" and assign method: "ffr_FormField_ApplyRenderRules_p"
-   - [ ] add Form Event "onLoad" and assign method: "ffr_FormField_ApplyRenderRules"
-
 ## Usage
 
 <u>Prerequisite: Set up Stage definitions according to the PAV Usage.</u>
 
-1. Open **Form Field Rendering Rules**. Create a <u>New Item</u>.
-2. Select the existing ItemType you wish to apply the rules to.
-3. Select the stage definition created previously.
-4. Select an Owner.
-5. Add the fields to be controlled.
+1. Log in as <u>admin</u> and expand to **Administration > Configuration**
+2. Open **Form Field Rendering Rules**. Create a <u>New Item</u>.
+3. Select the existing ItemType you wish to apply the rules to.
+4. Select the stage definition created previously.
+5. Select an Owner.
+6. Add the fields to be controlled.
    1. Select the form to be controlled.
    2. Select the field(s)
    3. Set the stages to validate at (multi-select) or the All Stages flag
    4. For each field select the appropriate combination of the below:
       1. Set <u>visible</u> or <u>hidden</u> and if the rule is applied to an **Identity**
       2. Set <u>enabled</u> or <u>disabled</u> and if the rule is applied to an **Identity**
-6. **Save** and **Lock** the record.
-7. **Promote** the record to <u>Active</u>. (**If you do not do this, the rules will not be in force!**)
-8. For the **ItemType(s)** selected above, go to any **Form(s)** used and set <u>Form Events</u> for the following:
+7. **Save** and **Lock** the record.
+8. **Promote** the record to <u>Active</u>. (**If you do not do this, the rules will not be in force!**)
+9. For the **ItemType(s)** selected above, go to any **Form(s)** used and set <u>Form Events</u> for the following:
    1. ffr_FormField_ApplyRenderRules_p – OnFormPopulated
    2. ffr_FormField_ApplyRenderRules – OnLoad
-9. Save/Unlock/Close the **Form(s)**.
-10. Test Validation.
+10. Save/Unlock/Close the **Form(s)**.
+11. Test Validation.
     1. Checks will run when a form is loaded.
 
 ## Contributing
