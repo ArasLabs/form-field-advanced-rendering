@@ -2,7 +2,7 @@
 
 ## Description
 
-<u>This solution depends on package "[Property Advanced Validation](???)" (PAV)</u>
+<u>This solution depends on package "[Property Advanced Validation](https://github.com/ArasLabs/property-advanced-validation)" (PAV)</u>
 
 Purpose:
 
@@ -21,15 +21,15 @@ Similar to and improved functionality from community project "[Life Cycle Based 
 
 ## History
 
-| Version    | Comments                                                     |
-| ---------- | ------------------------------------------------------------ |
-| [v1.0.0]() | Initial version. (replaces community project "[Life Cycle Based Props and Fields](<https://github.com/ArasLabs/lc-based-props-and-fields>)"); |
+| Version                                                      | Comments                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [v1.0.0](https://github.com/ArasLabs/form-field-advanced-rendering/releases/tag/v1.0.0) | Initial version. (replaces community project "[Life Cycle Based Props and Fields](<https://github.com/ArasLabs/lc-based-props-and-fields>)"); |
 
 ### Supported Aras Versions
 
-| Project    | Aras      |
-| ---------- | --------- |
-| [v1.0.0]() | 11.0 SP15 |
+| Project                                                      | Aras      |
+| ------------------------------------------------------------ | --------- |
+| [v1.0.0](https://github.com/ArasLabs/form-field-advanced-rendering/releases/tag/v1.0.0) | 11.0 SP15 |
 
 ## Installation
 
