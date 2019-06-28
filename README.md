@@ -12,7 +12,7 @@ Purpose:
 * 2 generic "Client Methods" (ffr_FormField_ApplyRenderRules, ffr_FormField_ApplyRenderRules_p) are provided to read the rules of the ItemType specific configurations to execute the rendering rules during "onLoad” of the Form.
 * Form Field Rendering rules must be set to status "Active" (life cycle) to take effect.
 
-Features used from PEV:
+Features used from PAV:
 
 * "Stages" are defined as one or more possible "Life Cycle States" of an item.
 
