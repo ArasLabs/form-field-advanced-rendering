@@ -1,5 +1,5 @@
 <!--
-Property Extend Validations:
+Property Advanced Validations:
 a configuration sample for item type "Part"
 
 -->
@@ -66,7 +66,8 @@ AML>
           </Item>
         </Relationships>
       </Item>
-
+      
+      <!-- You will need to turn off the required field for the owned_by_id property in the Item definition for this import to succeed, you can turn it back on afterwards -->
       <Item action="merge" type="ffr_ItemType_FormFieldRule" typeId="0755A67176464973BAD35060C6871A75" id="6E788D310B424ECE8B82AAE5427544F7">
         <description is_null="1" />
         <id keyed_name="Validations: ECR" type="ffr_ItemType_FormFieldRule">6E788D310B424ECE8B82AAE5427544F7</id>
